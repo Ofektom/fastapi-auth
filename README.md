@@ -30,7 +30,9 @@ venv\Scripts\activate  # For Windows
 
 ### 3. Install dependencies
 
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
 ### 4. Set up environment variables
 
@@ -42,7 +44,9 @@ ALGORITHM=HS256
 
 ### 5. Run the application
 
-`uvicorn main:app --reload`
+```bash
+uvicorn main:app --reload
+```
 
 ## Endpoints
 
