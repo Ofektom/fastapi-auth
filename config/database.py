@@ -4,7 +4,7 @@ from models.user_model import User
 from decouple import config
 
 # Load the MongoDB URI from environment variables
-MONGO_URI = config("MONGO_URI")
+MONGO_URI = config("MONGO_URI", default="mongodb://localhost:27017/fastapi_auth")
 
 async def init_db():
     client = AsyncIOMotorClient(MONGO_URI)
