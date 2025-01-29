@@ -22,18 +22,14 @@ def validate_password(password: str):
 @auth_router.post("/register", response_model=dict)
 async def register_user(user: UserRegisterSchema):
     try:
-        # Check if the user already exists
         existing_user = await User.find_one(User.email == user.email)
         if existing_user:
             raise UserAlreadyExistsException()
 
-        # Validate password
         validate_password(user.password)
-        
-        # Hash the password
-        hashed_password = hash_password(user.password)
 
-        # Create and save the new user
+        hashed_password = hash_password(user.password)
+        
         new_user = User(
             full_name=user.full_name,
             email=user.email,
@@ -44,7 +40,7 @@ async def register_user(user: UserRegisterSchema):
         return {"message": "User registered successfully"}
 
     except Exception as e:
-        raise e  # Custom exceptions will be handled globally by exception handlers
+        raise e 
 
 @auth_router.post("/login", response_model=TokenResponse)
 async def login_user(user: UserLoginSchema):
@@ -60,4 +56,4 @@ async def login_user(user: UserLoginSchema):
         return {"access_token": access_token}
 
     except Exception as e:
-        raise e  # Custom exceptions will be handled globally by exception handlers
+        raise e 
