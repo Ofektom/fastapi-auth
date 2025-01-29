@@ -3,7 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from models.user_model import User
 from decouple import config
 
-# Load the MongoDB URI from environment variables
+# Loading the MongoDB URI from environment variables or the default local database
 MONGO_URI = config("MONGO_URI", default="mongodb://localhost:27017/fastapi_auth")
 
 async def init_db():
