@@ -161,5 +161,3 @@ MIT License - see the LICENSE file for details.
 3. **Exception Handling:** Describes the exceptions thrown and the responses the API will return when issues occur.
 
 4. **Notes on JWT, Password Validation, etc.:** Gives additional context about important aspects of the app, such as security mechanisms (JWT, password hashing).
-
-This should be a comprehensive `README.md` for anyone using or consuming the API.
